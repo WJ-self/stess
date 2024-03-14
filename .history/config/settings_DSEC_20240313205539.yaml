@@ -25,7 +25,7 @@ dataset:
 task:
   semseg_num_classes: 11 # 6 for DDD17, 11 for DSEC
 dir:
-  log: '/root/autodl-tmp/dsec_log'
+  log: <path>
 model:
   model_name:  'ess' # ['ess', 'ess_supervised']
   skip_connect_encoder: True
