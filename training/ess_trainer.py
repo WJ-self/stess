@@ -10,7 +10,7 @@ from utils import radam
 import utils.viz_utils as viz_utils
 from utils.loss_functions import TaskLoss, symJSDivLoss
 from utils.viz_utils import plot_confusion_matrix
-from models.style_networks import StyleEncoderE2VID, SemSegE2VID
+from models.MUDecoder import StyleEncoderE2VID, MUDecoder 
 import training.base_trainer
 from evaluation.metrics import MetricsSemseg
 
@@ -78,7 +78,7 @@ class ESSModel(training.base_trainer.BaseTrainer):
                             "front_sensor_b": self.front_end_sensor_b}
 
         # Task Backend
-        self.task_backend = SemSegE2VID(input_c=256, output_c=self.settings.semseg_num_classes,
+        self.task_backend = MUDecoder (input_c=256, output_c=self.settings.semseg_num_classes,
                                         skip_connect=self.settings.skip_connect_task,
                                         skip_type=self.settings.skip_connect_task_type)
         self.models_dict["back_end"] = self.task_backend
@@ -104,282 +104,338 @@ class ESSModel(training.base_trainer.BaseTrainer):
         self.optimizers_dict["optimizer_back"] = optimizer_back
 
     def train_step(self, input_batch):
-        """Training step for the ESS model.
-
-        Args:
-            input_batch (_type_): input_batch[0][x]: Image Domain, input_batch[1][x]: Event Domain, 
-            x: 0: data, 1: labels, 2: paired_labels (if required_paired_data_train_x is True)
-
-        Returns:
-            _type_: _description_
         """
-        final_loss = 0.
-        losses = {}
-        outputs = {}
+        ESS模型的训练步骤。
 
-        # Task Step
-        optimizers_list = ['optimizer_back']
-        optimizers_list.append('optimizer_front_sensor_a')
+        参数:
+            input_batch (tuple): 输入批次，input_batch[0][x]: 图像域，input_batch[1][x]: 事件域，
+            x: 0: 数据，1: 标签，2: 配对标签（如果required_paired_data_train_x为True）
 
+        返回:
+            losses (dict): 损失字典。
+            outputs (dict): 输出字典。
+            final_loss (float): 最终损失。
+        """
+        final_loss = 0.  # 初始化最终损失
+        losses = {}  # 初始化损失字典
+        outputs = {}  # 初始化输出字典
+
+        # 任务步骤
+        optimizers_list = ['optimizer_back']  # 初始化优化器列表
+        optimizers_list.append('optimizer_front_sensor_a')  # 添加前端传感器A的优化器
+
+        # 为每个优化器重置梯度
         for key_word in optimizers_list:
             optimizer_key_word = self.optimizers_dict[key_word]
             optimizer_key_word.zero_grad()
 
-        # training on images
+        # 在图像上进行训练
         t_final_loss, t_losses, t_outputs = self.img_train_step(input_batch)
+        # 如果数据集名称为DDD17_events
         if self.settings.dataset_name_b == 'DDD17_events':
-            t_final_loss.backward()
+            t_final_loss.backward()  # 反向传播
+        # 如果数据集名称为DSEC_events
         elif self.settings.dataset_name_b == 'DSEC_events':
+            # 禁用前端传感器A的梯度
             for p in self.models_dict['front_sensor_a'].parameters():
                 p.requires_grad = False
-            t_final_loss.backward()
+            t_final_loss.backward()  # 反向传播
+            # 启用前端传感器A的梯度
             for p in self.models_dict['front_sensor_a'].parameters():
                 p.requires_grad = True
 
-        final_loss += t_final_loss
-        losses.update(t_losses)
-        outputs.update(t_outputs)
+        final_loss += t_final_loss  # 累加图像域的最终损失
+        losses.update(t_losses)  # 更新损失字典
+        outputs.update(t_outputs)  # 更新输出字典
 
-        # training on events
+        # 在事件上进行训练
         e_event_final_loss, t_event_final_loss, event_losses, event_outputs = self.event_train_step(input_batch)
+        # 禁用后端模型的梯度
         for p in self.models_dict['back_end'].parameters():
             p.requires_grad = False
-        e_event_final_loss.backward()
+        e_event_final_loss.backward()  # 反向传播事件域的损失
+        # 启用后端模型的梯度
         for p in self.models_dict['back_end'].parameters():
             p.requires_grad = True
-        t_event_final_loss.backward()
-        final_loss += e_event_final_loss
-        final_loss += t_event_final_loss
-        losses.update(event_losses)
-        outputs.update(event_outputs)
+        t_event_final_loss.backward()  # 反向传播任务域的损失
+        final_loss += e_event_final_loss  # 累加事件域的最终损失
+        final_loss += t_event_final_loss  # 累加任务域的最终损失
+        losses.update(event_losses)  # 更新损失字典
+        outputs.update(event_outputs)  # 更新输出字典
 
+        # 对每个优化器进行一步优化
         for key_word in optimizers_list:
             optimizer_key_word = self.optimizers_dict[key_word]
             optimizer_key_word.step()
 
-        return losses, outputs, final_loss
+        return losses, outputs, final_loss  # 返回损失字典、输出字典和最终损失
+
 
     def img_train_step(self, batch):
-        """Train on Image Domain
-
-        Args:
-            batch (_type_): _description_
-
-        Returns:
-            _type_: _description_
         """
-        data_a = batch[0][0]
+        在图像域上进行训练。
 
+        参数:
+            batch (tuple): 包含数据和标签的批次。
+
+        返回:
+            t (float): 任务损失。
+            losses (dict): 损失字典。
+            out (dict): 输出字典。
+        """
+        data_a = batch[0][0]  # 获取图像域数据
+
+        # 根据设置决定是否需要成对数据
         if self.settings.require_paired_data_train_a:
-            labels_a = batch[0][2]
+            labels_a = batch[0][2]  # 获取成对的标签
         else:
-            labels_a = batch[0][1]
+            labels_a = batch[0][1]  # 获取非成对的标签
 
-        # Set BatchNorm Statistics
+        # 设置BatchNorm统计数据
         for model in self.models_dict:
-            self.models_dict[model].train()
+            self.models_dict[model].train()  # 设置为训练模式
+            # 对特定模型设置为评估模式
             if model in ['front_sensor_b', 'e2vid_decoder']:
                 self.models_dict[model].eval()
+        # 设置后端模型参数的梯度
         for p in self.models_dict['back_end'].parameters():
             p.requires_grad = True
 
-        gen_model_sensor_a = self.models_dict['front_sensor_a']
+        gen_model_sensor_a = self.models_dict['front_sensor_a']  # 获取前端传感器A的生成模型
 
-        losses = {}
-        out = {}
-        t = 0.
+        losses = {}  # 初始化损失字典
+        out = {}  # 初始化输出字典
+        t = 0.  # 初始化任务损失
 
-        latent_fake = gen_model_sensor_a(data_a)
+        latent_fake = gen_model_sensor_a(data_a)  # 生成伪造的潜在特征
 
+        # 训练任务步骤
         t_loss, pred_a = self.trainTaskStep('sensor_a', latent_fake, labels_a, losses)
-        t += t_loss
+        t += t_loss  # 累加任务损失
 
+        # 如果是可视化的周期，则进行可视化步骤
         if self.visualize_epoch():
             self.visTaskStep(data_a, pred_a, labels_a)
 
-        return t, losses, out
+        return t, losses, out  # 返回任务损失、损失字典和输出字典
+
 
     def event_train_step(self, batch):
-        """Train on Event Domain
-
-        Args:
-            batch (_type_): _description_
-
-        Returns:
-            _type_: _description_
         """
-        data_b = batch[1][0]
-        if self.settings.require_paired_data_train_b:
-            labels_b = batch[1][2]
-        else:
-            labels_b = batch[1][1]
+        在事件域上进行训练。
 
-        # Set BatchNorm Statistics
+        参数:
+            batch (tuple): 包含数据和标签的批次。
+
+        返回:
+            e_loss (float): 事件域损失。
+            t_loss (float): 任务损失。
+            losses (dict): 损失字典。
+            out (dict): 输出字典。
+        """
+        data_b = batch[1][0]  # 获取事件域数据
+        # 根据设置决定是否需要成对数据
+        if self.settings.require_paired_data_train_b:
+            labels_b = batch[1][2]  # 获取成对的标签
+        else:
+            labels_b = batch[1][1]  # 获取非成对的标签
+
+        # 设置BatchNorm统计数据
         for model in self.models_dict:
-            self.models_dict[model].train()
+            self.models_dict[model].train()  # 设置为训练模式
+            # 对特定模型设置为评估模式
             if model in ['front_sensor_b', 'e2vid_decoder', "back_end"]:
                 self.models_dict[model].eval()
 
-        gen_model_sensor_a = self.models_dict['front_sensor_a']
-        self.reconstructor.last_states_for_each_channel = {'grayscale': None}
-        e_loss = 0.
-        losses = {}
-        out = {}
+        gen_model_sensor_a = self.models_dict['front_sensor_a']  # 获取前端传感器A的生成模型
+        self.reconstructor.last_states_for_each_channel = {'grayscale': None}  # 初始化重建器的状态
+        e_loss = 0.  # 初始化事件域损失
+        losses = {}  # 初始化损失字典
+        out = {}  # 初始化输出字典
 
-        # Train img encoder.
-        with torch.no_grad():
+        # 训练图像编码器
+        with torch.no_grad():  # 不计算梯度
             for i in range(self.settings.nr_events_data_b):
+                # 获取事件张量
                 event_tensor = data_b[:, i * self.settings.input_channels_b:(i + 1) * self.settings.input_channels_b, :, :]
+                # 更新重建
                 img_fake, states_real, latent_real = self.reconstructor.update_reconstruction(event_tensor)
 
-        latent_fake = gen_model_sensor_a(img_fake.detach())
+        latent_fake = gen_model_sensor_a(img_fake.detach())  # 生成伪造的潜在特征
 
+        # 分离真实的潜在特征
         for key in latent_real.keys():
             latent_real[key] = latent_real[key].detach()
 
+        # 训练循环步骤
         cycle_loss, pred_b, pred_a = self.trainCycleStep('sensor_b', 'sensor_a', latent_real, latent_fake, losses)
-        e_loss += cycle_loss
+        e_loss += cycle_loss  # 累加循环损失到事件域损失
 
+        # 如果是可视化的周期，则进行可视化步骤
         if self.visualize_epoch():
             self.visCycleStep(data_b, img_fake, pred_b, pred_a, labels_b)
 
-        # Train task network.
-        self.models_dict['back_end'].train()
-        t_loss = 0.
+        # 训练任务网络
+        self.models_dict['back_end'].train()  # 设置任务网络为训练模式
+        t_loss = 0.  # 初始化任务损失
+        # 计算任务循环步骤的损失
         t_loss += self.TasktrainCycleStep('sensor_b', 'sensor_a', latent_real, latent_fake, losses)
+        # 如果设置为在事件标签上训练
         if self.settings.train_on_event_labels:
             t_loss_b, _ = self.trainTaskStep('sensor_b', latent_real, labels_b, losses)
-            t_loss += t_loss_b
+            t_loss += t_loss_b  # 累加任务损失
 
-        return e_loss, t_loss, losses, out
+        return e_loss, t_loss, losses, out  # 返回损失和输出
+
     
     def trainTaskStep(self, sensor_name, latent_fake, labels, losses):
-        """Calculate the task loss and the prediction of the task network (Semantic Segmentation).
-            In Image Domain: Ltask:Task Loss: 
-            In Event Domain: Lcons.pred: Consistency Loss of Predictions
-
-        Args:
-            sensor_name (string): Image Domain or Event Domain
-            latent_fake (_type_): _description_
-            labels (_type_): _description_
-            losses (dict): loss dictionary
-
-        Returns:
-            loss_pred (float): task loss
-            pred (_type_): _description_
         """
-        content_features = {}
+        计算任务损失以及任务网络的预测（语义分割）。
+        在图像域中：L_{task}：任务损失。
+        在事件域中：L_{cons.pred}：预测的一致性损失。
+
+        参数:
+            sensor_name (str): 图像域或事件域。
+            latent_fake (Tensor): 伪造的潜在特征。
+            labels (Tensor): 标签。
+            losses (dict): 损失字典。
+
+        返回:
+            loss_pred (float): 任务损失。
+            pred (Tensor): 预测。
+        """
+        content_features = {}  # 初始化内容特征字典
+        # 遍历伪造的潜在特征键值
         for key in latent_fake.keys():
+            # 如果数据集名称为DDD17_events
             if self.settings.dataset_name_b == 'DDD17_events':
-                content_features[key] = latent_fake[key]
+                content_features[key] = latent_fake[key]  # 直接使用潜在特征
+            # 如果数据集名称为DSEC_events
             elif self.settings.dataset_name_b == 'DSEC_events':
-                content_features[key] = latent_fake[key].detach()
-        task_backend = self.models_dict["back_end"]
-        pred = task_backend(content_features)
+                content_features[key] = latent_fake[key].detach()  # 分离潜在特征
+        task_backend = self.models_dict["back_end"]  # 获取模型的后端部分
+        pred = task_backend(content_features)  # 使用后端模型进行预测
+        # 计算预测的任务损失，并乘以任务损失权重
         loss_pred = self.task_loss(pred[1], labels) * self.settings.weight_task_loss
-        losses['semseg_' + sensor_name + '_loss'] = loss_pred.detach()
+        losses['semseg_' + sensor_name + '_loss'] = loss_pred.detach()  # 记录损失
 
-        return loss_pred, pred
+        return loss_pred, pred  # 返回任务损失和预测
 
-    def trainCycleStep(self, first_sensor_name, second_sensor_name, content_first_sensor, content_second_sensor,
-                       losses):
-        """Lcons.emb: Consistency Loss between Zevent and Zimg (Z: embeddings, the output of the encoder network)
-
-        Args:
-            first_sensor_name (_type_): _description_
-            second_sensor_name (_type_): _description_
-            content_first_sensor (_type_): _description_
-            content_second_sensor (_type_): _description_
-            losses (_type_): _description_
-
-        Returns:
-            _type_: _description_
+    def trainCycleStep(self, first_sensor_name, second_sensor_name, content_first_sensor, content_second_sensor, losses):
         """
-        g_loss = 0.
-        cycle_name = first_sensor_name + '_to_' + second_sensor_name
-        # latent_feature
+        计算两个传感器输出的嵌入向量之间的一致性损失。
+
+        参数:
+            first_sensor_name (str): 第一个传感器的名称。
+            second_sensor_name (str): 第二个传感器的名称。
+            content_first_sensor (Tensor): 第一个传感器的内容。
+            content_second_sensor (Tensor): 第二个传感器的内容。
+            losses (dict): 存储损失值的字典。
+
+        返回:
+            g_loss (float): 总的生成器损失。
+            pred_first_sensor_no_grad (Tensor): 不计算梯度的第一个传感器的预测。
+            pred_second_sensor (Tensor): 第二个传感器的预测。
+        """
+        g_loss = 0.  # 初始化生成器损失为0
+        cycle_name = first_sensor_name + '_to_' + second_sensor_name  # 创建循环名称
+
+        # 如果设置了跳过连接编码器，则计算2倍和4倍的潜在特征损失
         if self.settings.skip_connect_encoder:
+            # 计算2倍潜在特征的循环内容损失，并乘以循环损失权重
             cycle_latent_loss_2x = self.cycle_content_loss(content_second_sensor[2], content_first_sensor[2]) * \
-                                   self.settings.weight_cycle_loss
-            g_loss += cycle_latent_loss_2x
-            losses['cycle_latent_2x_' + cycle_name + '_loss'] = cycle_latent_loss_2x.cpu().detach()
+                                self.settings.weight_cycle_loss
+            g_loss += cycle_latent_loss_2x  # 累加到总损失
+            losses['cycle_latent_2x_' + cycle_name + '_loss'] = cycle_latent_loss_2x.cpu().detach()  # 记录损失
+
+            # 计算4倍潜在特征的循环内容损失，并乘以循环损失权重
             cycle_latent_loss_4x = self.cycle_content_loss(content_second_sensor[4], content_first_sensor[4]) * \
-                                   self.settings.weight_cycle_loss
-            g_loss += cycle_latent_loss_4x
-            losses['cycle_latent_4x_' + cycle_name + '_loss'] = cycle_latent_loss_4x.cpu().detach()
+                                self.settings.weight_cycle_loss
+            g_loss += cycle_latent_loss_4x  # 累加到总损失
+            losses['cycle_latent_4x_' + cycle_name + '_loss'] = cycle_latent_loss_4x.cpu().detach()  # 记录损失
 
+        # 计算8倍潜在特征的循环内容损失，并乘以循环损失权重
         cycle_latent_loss_8x = self.cycle_content_loss(content_second_sensor[8], content_first_sensor[8]) * \
-                               self.settings.weight_cycle_loss
-        g_loss += cycle_latent_loss_8x
-        losses['cycle_latent_8x_' + cycle_name + '_loss'] = cycle_latent_loss_8x.cpu().detach()
+                            self.settings.weight_cycle_loss
+        g_loss += cycle_latent_loss_8x  # 累加到总损失
+        losses['cycle_latent_8x_' + cycle_name + '_loss'] = cycle_latent_loss_8x.cpu().detach()  # 记录损失
 
-        task_backend = self.models_dict["back_end"]
+        task_backend = self.models_dict["back_end"]  # 获取模型的后端部分
 
+        # 使用后端模型对第二个传感器的内容进行预测
         pred_second_sensor = task_backend(content_second_sensor)
-        with torch.no_grad():
+        with torch.no_grad():  # 不计算梯度
+            # 使用后端模型对第一个传感器的内容进行预测（不计算梯度）
             pred_first_sensor_no_grad = task_backend(content_first_sensor)
 
+        # 计算1倍预测的循环预测损失
         cycle_pred_loss_1x_events = self.cycle_pred_loss(pred_second_sensor[1], pred_first_sensor_no_grad[1])
-        losses['cycle_pred_1x_' + cycle_name + '_loss'] = cycle_pred_loss_1x_events.cpu().detach()
+        losses['cycle_pred_1x_' + cycle_name + '_loss'] = cycle_pred_loss_1x_events.cpu().detach()  # 记录损失
         cycle_pred_loss_1x = cycle_pred_loss_1x_events
-        if self.settings.dataset_name_b == 'DSEC_events':
-            g_loss += cycle_pred_loss_1x
+        if self.settings.dataset_name_b == 'DSEC_events':  # 如果数据集名称为DSEC_events
+            g_loss += cycle_pred_loss_1x  # 累加到总损失
 
+        # 计算2倍预测的循环内容损失，并乘以循环任务损失权重
         cycle_pred_loss_2x_events = self.cycle_content_loss(pred_second_sensor[2], pred_first_sensor_no_grad[2]) * \
                                     self.settings.weight_cycle_task_loss
         cycle_pred_loss_2x = cycle_pred_loss_2x_events
-        g_loss += cycle_pred_loss_2x
-        losses['cycle_pred_2x_' + cycle_name + '_loss'] = cycle_pred_loss_2x.cpu().detach()
+        g_loss += cycle_pred_loss_2x  # 累加到总损失
+        losses['cycle_pred_2x_' + cycle_name + '_loss'] = cycle_pred_loss_2x.cpu().detach()  # 记录损失
 
+        # 计算4倍预测的循环内容损失，并乘以循环任务损失权重
         cycle_pred_loss_4x_events = self.cycle_content_loss(pred_second_sensor[4], pred_first_sensor_no_grad[4]) * \
                                     self.settings.weight_cycle_task_loss
         cycle_pred_loss_4x = cycle_pred_loss_4x_events
-        g_loss += cycle_pred_loss_4x
-        losses['cycle_pred_4x_' + cycle_name + '_loss'] = cycle_pred_loss_4x.cpu().detach()
+        g_loss += cycle_pred_loss_4x  # 累加到总损失
+        losses['cycle_pred_4x_' + cycle_name + '_loss'] = cycle_pred_loss_4x.cpu().detach()  # 记录损失
 
-        return g_loss, pred_first_sensor_no_grad, pred_second_sensor
+        return g_loss, pred_first_sensor_no_grad, pred_second_sensor  # 返回总损失和两个传感器的预测
 
 
-    def TasktrainCycleStep(self, first_sensor_name, second_sensor_name, content_first_sensor, content_second_sensor,
-                           losses):
-        """Lcons.task: Consistency Loss on Task Network in Event Domain
 
-        Args:
-            first_sensor_name (_type_): _description_
-            second_sensor_name (_type_): _description_
-            content_first_sensor (_type_): _description_
-            content_second_sensor (_type_): _description_
-            losses (_type_): _description_
-
-        Returns:
-            _type_: _description_
+    def TasktrainCycleStep(self, first_sensor_name, second_sensor_name, content_first_sensor, content_second_sensor, losses):
         """
-        t_loss = 0.
-        cycle_name = first_sensor_name + '_to_' + second_sensor_name
+        L_{cons.task}: 在事件域中的任务网络上计算一致性损失。
 
-        task_backend = self.models_dict["back_end"]
-        pred_first_sensor = task_backend(content_first_sensor)
+        参数:
+            first_sensor_name (str): 第一个传感器的名称。
+            second_sensor_name (str): 第二个传感器的名称。
+            content_first_sensor (Tensor): 第一个传感器的内容。
+            content_second_sensor (Tensor): 第二个传感器的内容。
+            losses (dict): 存储损失值的字典。
 
-        with torch.no_grad():
-            pred_second_sensor_no_grad = task_backend(content_second_sensor)
+        返回:
+            t_loss (float): 总的任务损失。
+        """
+        t_loss = 0.  # 初始化任务损失为0
+        cycle_name = first_sensor_name + '_to_' + second_sensor_name  # 创建循环名称
 
+        task_backend = self.models_dict["back_end"]  # 获取模型的后端部分
+        pred_first_sensor = task_backend(content_first_sensor)  # 使用后端模型对第一个传感器的内容进行预测
+
+        with torch.no_grad():  # 不计算梯度
+            pred_second_sensor_no_grad = task_backend(content_second_sensor)  # 使用后端模型对第二个传感器的内容进行预测（不计算梯度）
+
+        # 计算1倍预测的循环预测损失，并乘以KL损失权重
         cycle_pred_loss_1x_events = self.cycle_pred_loss(pred_first_sensor[1], pred_second_sensor_no_grad[1]) * \
                                     self.settings.weight_KL_loss
-
         cycle_pred_loss_1x = cycle_pred_loss_1x_events
-        t_loss += cycle_pred_loss_1x
+        t_loss += cycle_pred_loss_1x  # 累加到总损失
 
+        # 计算2倍预测的循环内容损失，并乘以循环任务损失权重
         cycle_pred_loss_2x_events = self.cycle_content_loss(pred_first_sensor[2], pred_second_sensor_no_grad[2]) * \
                                     self.settings.weight_cycle_task_loss
         cycle_pred_loss_2x = cycle_pred_loss_2x_events
-        t_loss += cycle_pred_loss_2x
+        t_loss += cycle_pred_loss_2x  # 累加到总损失
 
+        # 计算4倍预测的循环内容损失，并乘以循环任务损失权重
         cycle_pred_loss_4x_events = self.cycle_content_loss(pred_first_sensor[4], pred_second_sensor_no_grad[4]) * \
                                     self.settings.weight_cycle_task_loss
         cycle_pred_loss_4x = cycle_pred_loss_4x_events
-        t_loss += cycle_pred_loss_4x
+        t_loss += cycle_pred_loss_4x  # 累加到总损失
 
-        return t_loss
+        return t_loss  # 返回总任务损失
+
 
     def visCycleStep(self, events_real, img_fake, pred_events, pred_img, labels):
         pred_events = pred_events[1]
