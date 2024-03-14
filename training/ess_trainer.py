@@ -5,13 +5,14 @@ import torch.nn.functional as f
 import math
 from tqdm import tqdm
 
+from models.segformer_encoder import SegformerEncoder
 from utils import radam
 import utils.viz_utils as viz_utils
+from utils.loss_functions import TaskLoss, symJSDivLoss
+from utils.viz_utils import plot_confusion_matrix
 from models.style_networks import StyleEncoderE2VID, SemSegE2VID
 import training.base_trainer
 from evaluation.metrics import MetricsSemseg
-from utils.loss_functions import TaskLoss, symJSDivLoss
-from utils.viz_utils import plot_confusion_matrix
 
 from e2vid.utils.loading_utils import load_model
 from e2vid.image_reconstructor import ImageReconstructor
@@ -44,8 +45,7 @@ class ESSModel(training.base_trainer.BaseTrainer):
 
     def buildModels(self):
         # Front End Sensor A
-        self.front_end_sensor_a = StyleEncoderE2VID(self.settings.input_channels_a,
-                                                    skip_connect=self.settings.skip_connect_encoder)
+        self.front_end_sensor_a = SegformerEncoder(channels=self.settings.input_channels_a)
 
         # Front End Sensor B
         self.front_end_sensor_b, self.e2vid_decoder = load_model(self.settings.path_to_model)
@@ -60,6 +60,8 @@ class ESSModel(training.base_trainer.BaseTrainer):
             self.input_width = 216
         self.input_height_valid = self.input_height
         self.input_width_valid = self.input_width
+        self.front_end_sensor_a = StyleEncoderE2VID(self.settings.input_channels_a,
+                                                    skip_connect=self.settings.skip_connect_encoder)
         self.reconstructor = ImageReconstructor(self.front_end_sensor_b, self.input_height, self.input_width,
                                                 self.settings.nr_temporal_bins_b, self.settings.gpu_device,
                                                 self.settings.e2vid_config)
@@ -70,6 +72,7 @@ class ESSModel(training.base_trainer.BaseTrainer):
             self.reconstructor_valid = ImageReconstructor(self.front_end_sensor_b, self.input_height_valid, self.input_width_valid,
                                                     self.settings.nr_temporal_bins_b, self.settings.gpu_device,
                                                     self.settings.e2vid_config)
+        
 
         self.models_dict = {"front_sensor_a": self.front_end_sensor_a,
                             "front_sensor_b": self.front_end_sensor_b}
