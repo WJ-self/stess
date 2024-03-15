@@ -83,6 +83,12 @@ Cityscapes数据集可在[此处下载](https://www.cityscapes-dataset.com/).
 ```
 python train.py --settings_file config/settings_XXXX.yaml
 ```
+如DDD17：
+下面的命令开始训练：
+
+```
+python train.py --settings_file config/settings_DDD17.yaml
+```
 
 ## 测试
 

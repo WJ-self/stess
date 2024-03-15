@@ -1,0 +1,27 @@
+{
+    "os": "Linux-5.15.0-97-generic-x86_64-with-glibc2.31",
+    "python": "3.10.4",
+    "heartbeatAt": "2024-03-14T12:39:41.023138",
+    "startedAt": "2024-03-14T12:39:34.663760",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_count": 1,
+    "cpu_count": 128,
+    "cuda": null,
+    "args": [
+        "--settings_file",
+        "config/settings_DDD17.yaml"
+    ],
+    "state": "running",
+    "program": "/root/wj/stess/train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/WJ-self/stess.git",
+        "commit": "e2617c0fa69f9392b4a18371d72e7ab618b343ae"
+    },
+    "email": null,
+    "root": "/root/wj/stess",
+    "host": "autodl-container-59154cad17-4039376c",
+    "username": "root",
+    "executable": "/root/miniconda3/envs/ess/bin/python"
+}

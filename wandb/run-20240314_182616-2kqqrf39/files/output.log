@@ -1,0 +1,24 @@
+
+Loading model e2vid/pretrained/E2VID_lightweight.pth.tar...
+Traceback (most recent call last):
+  File "/root/wj/stess/train.py", line 58, in <module>
+    main()
+  File "/root/wj/stess/train.py", line 39, in main
+    trainer = ESSModel(settings)
+  File "/root/wj/stess/training/ess_trainer.py", line 23, in __init__
+    super(ESSModel, self).__init__(settings)
+  File "/root/wj/stess/training/base_trainer.py", line 28, in __init__
+    self.init_fn()
+  File "/root/wj/stess/training/ess_trainer.py", line 27, in init_fn
+    self.buildModels()
+  File "/root/wj/stess/training/ess_trainer.py", line 51, in buildModels
+    self.front_end_sensor_b, self.e2vid_decoder = load_model(self.settings.path_to_model)
+  File "/root/wj/stess/e2vid/utils/loading_utils.py", line 7, in load_model
+    raw_model = torch.load(path_to_model)
+  File "/root/miniconda3/envs/ess/lib/python3.10/site-packages/torch/serialization.py", line 699, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/root/miniconda3/envs/ess/lib/python3.10/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/root/miniconda3/envs/ess/lib/python3.10/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'e2vid/pretrained/E2VID_lightweight.pth.tar'

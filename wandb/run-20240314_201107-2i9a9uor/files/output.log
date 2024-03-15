@@ -1,0 +1,32 @@
+Loading model e2vid/pretrained/E2VID_lightweight.pth.tar...
+Using TransposedConvLayer (fast, with checkerboard artefacts)
+Using TransposedConvLayer (fast, with checkerboard artefacts)
+/root/miniconda3/envs/ess/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/root/miniconda3/envs/ess/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Cityscapes num of batches:  185 31
+[DDD17Segmentation]: Found 15950 segmentation masks for split train
+[DDD17Segmentation]: Loading real events.
+[DDD17Segmentation]: Found 3890 segmentation masks for split valid
+[DDD17Segmentation]: Loading real events.
+DDD17Events num of batches:  996 243
+[34m[1mwandb[39m[22m: [33mWARNING[39m Found log directory outside of given root_logdir, dropping given root_logdir for event file in /root/autodl-tmp/stess_log/ddd17/20240314-201101/checkpoints
+Traceback (most recent call last):
+  File "/root/wj/stess/train.py", line 58, in <module>
+    main()
+  File "/root/wj/stess/train.py", line 39, in main
+    trainer = ESSModel(settings)
+  File "/root/wj/stess/training/ess_trainer.py", line 23, in __init__
+    super(ESSModel, self).__init__(settings)
+  File "/root/wj/stess/training/base_trainer.py", line 53, in __init__
+    self.saver.load_pretrained_weights(self.models_dict, self.models_dict.keys(),
+  File "/root/wj/stess/utils/saver.py", line 51, in load_pretrained_weights
+    checkpoint = torch.load(checkpoint_file)
+  File "/root/miniconda3/envs/ess/lib/python3.10/site-packages/torch/serialization.py", line 699, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/root/miniconda3/envs/ess/lib/python3.10/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/root/miniconda3/envs/ess/lib/python3.10/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/root/wj/ess/weights/DDD17_Semantic_supervised_events_frames.pt'

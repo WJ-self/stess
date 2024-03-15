@@ -13,6 +13,7 @@ import torch
 import random
 import os
 
+
 # random seed
 seed_value = 6
 np.random.seed(seed_value)
@@ -32,7 +33,7 @@ def main():
     settings_filepath = args.settings_file
     settings = Settings(settings_filepath, generate_log=True)
 
-    wandb.init(name=(settings.dataset_name_b.split("_")[0] + '_' + settings.timestr), project="zhaoning_sun_semester_thesis", entity="zhasun", sync_tensorboard=True)
+    wandb.init(name=(settings.dataset_name_b.split("_")[0] + '_' + settings.timestr), project="ST-ESS", entity="wangjing07", sync_tensorboard=True)
 
     if settings.model_name == 'ess':
         trainer = ESSModel(settings)

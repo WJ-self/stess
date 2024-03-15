@@ -1,0 +1,225 @@
+2024-03-14 19:53:26,971 INFO    StreamThr :4417 [internal.py:wandb_internal():90] W&B internal server running at pid: 4417, started at: 2024-03-14 19:53:26.970608
+2024-03-14 19:53:26,975 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: status
+2024-03-14 19:53:26,977 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: status
+2024-03-14 19:53:26,980 DEBUG   SenderThread:4417 [sender.py:send():302] send: header
+2024-03-14 19:53:26,980 DEBUG   SenderThread:4417 [sender.py:send():302] send: run
+2024-03-14 19:53:26,982 INFO    WriterThread:4417 [datastore.py:open_for_write():75] open: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/run-1l66p8ei.wandb
+2024-03-14 19:53:28,480 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: check_version
+2024-03-14 19:53:28,481 INFO    SenderThread:4417 [dir_watcher.py:__init__():216] watching files in: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files
+2024-03-14 19:53:28,481 INFO    SenderThread:4417 [sender.py:_start_run_threads():913] run started: 1l66p8ei with start time 1710417206.870552
+2024-03-14 19:53:28,481 DEBUG   SenderThread:4417 [sender.py:send():302] send: summary
+2024-03-14 19:53:28,481 INFO    SenderThread:4417 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2024-03-14 19:53:28,482 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: check_version
+2024-03-14 19:53:29,483 INFO    Thread-12 :4417 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/wandb-summary.json
+2024-03-14 19:53:33,491 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: run_start
+2024-03-14 19:53:33,525 DEBUG   HandlerThread:4417 [meta.py:__init__():35] meta init
+2024-03-14 19:53:33,525 DEBUG   HandlerThread:4417 [meta.py:__init__():50] meta init done
+2024-03-14 19:53:33,525 DEBUG   HandlerThread:4417 [meta.py:probe():216] probe
+2024-03-14 19:53:33,526 DEBUG   HandlerThread:4417 [meta.py:_setup_git():206] setup git
+2024-03-14 19:53:33,535 DEBUG   HandlerThread:4417 [meta.py:_setup_git():213] setup git done
+2024-03-14 19:53:33,535 DEBUG   HandlerThread:4417 [meta.py:_save_pip():54] save pip
+2024-03-14 19:53:33,536 DEBUG   HandlerThread:4417 [meta.py:_save_pip():68] save pip done
+2024-03-14 19:53:33,536 DEBUG   HandlerThread:4417 [meta.py:_save_conda():75] save conda
+2024-03-14 19:53:33,537 ERROR   HandlerThread:4417 [meta.py:_save_conda():84] Error saving conda packages
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/ess/lib/python3.10/site-packages/wandb/sdk/internal/meta.py", line 80, in _save_conda
+    subprocess.call(
+  File "/root/miniconda3/envs/ess/lib/python3.10/subprocess.py", line 345, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/root/miniconda3/envs/ess/lib/python3.10/subprocess.py", line 966, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/root/miniconda3/envs/ess/lib/python3.10/subprocess.py", line 1842, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2024-03-14 19:53:33,538 DEBUG   HandlerThread:4417 [meta.py:_save_conda():85] save conda done
+2024-03-14 19:53:33,538 DEBUG   HandlerThread:4417 [meta.py:probe():254] probe done
+2024-03-14 19:53:33,602 DEBUG   SenderThread:4417 [sender.py:send():302] send: files
+2024-03-14 19:53:33,602 INFO    SenderThread:4417 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2024-03-14 19:53:33,610 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 19:53:33,610 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 19:53:34,074 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:34,313 DEBUG   SenderThread:4417 [sender.py:send():302] send: telemetry
+2024-03-14 19:53:34,317 DEBUG   SenderThread:4417 [sender.py:send():302] send: exit
+2024-03-14 19:53:34,317 INFO    SenderThread:4417 [sender.py:send_exit():438] handling exit code: 1
+2024-03-14 19:53:34,317 INFO    SenderThread:4417 [sender.py:send_exit():440] handling runtime: 0
+2024-03-14 19:53:34,320 INFO    SenderThread:4417 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2024-03-14 19:53:34,320 INFO    SenderThread:4417 [sender.py:send_exit():446] send defer
+2024-03-14 19:53:34,320 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:34,322 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: defer
+2024-03-14 19:53:34,323 INFO    HandlerThread:4417 [handler.py:handle_request_defer():164] handle defer: 0
+2024-03-14 19:53:34,323 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: defer
+2024-03-14 19:53:34,323 INFO    SenderThread:4417 [sender.py:send_request_defer():455] handle sender defer: 0
+2024-03-14 19:53:34,323 INFO    SenderThread:4417 [sender.py:transition_state():459] send defer: 1
+2024-03-14 19:53:34,324 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: defer
+2024-03-14 19:53:34,324 INFO    HandlerThread:4417 [handler.py:handle_request_defer():164] handle defer: 1
+2024-03-14 19:53:34,374 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: defer
+2024-03-14 19:53:34,374 INFO    SenderThread:4417 [sender.py:send_request_defer():455] handle sender defer: 1
+2024-03-14 19:53:34,375 INFO    SenderThread:4417 [sender.py:transition_state():459] send defer: 2
+2024-03-14 19:53:34,375 DEBUG   SenderThread:4417 [sender.py:send():302] send: stats
+2024-03-14 19:53:34,375 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: defer
+2024-03-14 19:53:34,375 INFO    HandlerThread:4417 [handler.py:handle_request_defer():164] handle defer: 2
+2024-03-14 19:53:34,376 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: defer
+2024-03-14 19:53:34,376 INFO    SenderThread:4417 [sender.py:send_request_defer():455] handle sender defer: 2
+2024-03-14 19:53:34,376 INFO    SenderThread:4417 [sender.py:transition_state():459] send defer: 3
+2024-03-14 19:53:34,376 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: defer
+2024-03-14 19:53:34,376 INFO    HandlerThread:4417 [handler.py:handle_request_defer():164] handle defer: 3
+2024-03-14 19:53:34,376 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: defer
+2024-03-14 19:53:34,376 INFO    SenderThread:4417 [sender.py:send_request_defer():455] handle sender defer: 3
+2024-03-14 19:53:34,376 INFO    SenderThread:4417 [sender.py:transition_state():459] send defer: 4
+2024-03-14 19:53:34,377 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: defer
+2024-03-14 19:53:34,377 INFO    HandlerThread:4417 [handler.py:handle_request_defer():164] handle defer: 4
+2024-03-14 19:53:34,377 DEBUG   SenderThread:4417 [sender.py:send():302] send: summary
+2024-03-14 19:53:34,377 INFO    SenderThread:4417 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2024-03-14 19:53:34,378 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: defer
+2024-03-14 19:53:34,378 INFO    SenderThread:4417 [sender.py:send_request_defer():455] handle sender defer: 4
+2024-03-14 19:53:34,378 INFO    SenderThread:4417 [sender.py:transition_state():459] send defer: 5
+2024-03-14 19:53:34,378 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: defer
+2024-03-14 19:53:34,378 INFO    HandlerThread:4417 [handler.py:handle_request_defer():164] handle defer: 5
+2024-03-14 19:53:34,378 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: defer
+2024-03-14 19:53:34,378 INFO    SenderThread:4417 [sender.py:send_request_defer():455] handle sender defer: 5
+2024-03-14 19:53:34,424 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:34,484 INFO    Thread-12 :4417 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/wandb-summary.json
+2024-03-14 19:53:34,484 INFO    Thread-12 :4417 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/wandb-metadata.json
+2024-03-14 19:53:34,485 INFO    Thread-12 :4417 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/conda-environment.yaml
+2024-03-14 19:53:34,485 INFO    Thread-12 :4417 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/requirements.txt
+2024-03-14 19:53:34,485 INFO    Thread-12 :4417 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/output.log
+2024-03-14 19:53:36,485 INFO    Thread-12 :4417 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/output.log
+2024-03-14 19:53:38,190 INFO    Thread-16 :4417 [upload_job.py:push():138] Uploaded file /tmp/tmpecpov040wandb/8q8mnlv8-wandb-metadata.json
+2024-03-14 19:53:38,348 INFO    SenderThread:4417 [sender.py:transition_state():459] send defer: 6
+2024-03-14 19:53:38,348 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:38,349 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: defer
+2024-03-14 19:53:38,350 INFO    HandlerThread:4417 [handler.py:handle_request_defer():164] handle defer: 6
+2024-03-14 19:53:38,350 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: defer
+2024-03-14 19:53:38,350 INFO    SenderThread:4417 [sender.py:send_request_defer():455] handle sender defer: 6
+2024-03-14 19:53:38,451 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:38,486 INFO    Thread-12 :4417 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/config.yaml
+2024-03-14 19:53:42,331 INFO    SenderThread:4417 [sender.py:transition_state():459] send defer: 7
+2024-03-14 19:53:42,332 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:42,333 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: defer
+2024-03-14 19:53:42,334 INFO    HandlerThread:4417 [handler.py:handle_request_defer():164] handle defer: 7
+2024-03-14 19:53:42,334 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: defer
+2024-03-14 19:53:42,334 INFO    SenderThread:4417 [sender.py:send_request_defer():455] handle sender defer: 7
+2024-03-14 19:53:42,334 INFO    SenderThread:4417 [dir_watcher.py:finish():362] shutting down directory watcher
+2024-03-14 19:53:42,435 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:42,488 INFO    SenderThread:4417 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/output.log
+2024-03-14 19:53:42,489 INFO    SenderThread:4417 [dir_watcher.py:finish():392] scan: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files
+2024-03-14 19:53:42,489 INFO    SenderThread:4417 [dir_watcher.py:finish():406] scan save: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/config.yaml config.yaml
+2024-03-14 19:53:42,490 INFO    SenderThread:4417 [dir_watcher.py:finish():406] scan save: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/wandb-summary.json wandb-summary.json
+2024-03-14 19:53:42,495 INFO    SenderThread:4417 [dir_watcher.py:finish():406] scan save: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/requirements.txt requirements.txt
+2024-03-14 19:53:42,496 INFO    SenderThread:4417 [dir_watcher.py:finish():406] scan save: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/conda-environment.yaml conda-environment.yaml
+2024-03-14 19:53:42,496 INFO    SenderThread:4417 [dir_watcher.py:finish():406] scan save: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/wandb-metadata.json wandb-metadata.json
+2024-03-14 19:53:42,496 INFO    SenderThread:4417 [dir_watcher.py:finish():406] scan save: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/output.log output.log
+2024-03-14 19:53:42,496 INFO    SenderThread:4417 [sender.py:transition_state():459] send defer: 8
+2024-03-14 19:53:42,496 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:42,497 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: defer
+2024-03-14 19:53:42,503 INFO    HandlerThread:4417 [handler.py:handle_request_defer():164] handle defer: 8
+2024-03-14 19:53:42,508 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: defer
+2024-03-14 19:53:42,514 INFO    SenderThread:4417 [sender.py:send_request_defer():455] handle sender defer: 8
+2024-03-14 19:53:42,515 INFO    SenderThread:4417 [file_pusher.py:finish():171] shutting down file pusher
+2024-03-14 19:53:42,615 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:42,616 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:42,718 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:42,718 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:42,820 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:42,820 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:42,922 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:42,922 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:43,024 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:43,024 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:43,126 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:43,126 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:43,228 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:43,229 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:43,330 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:43,331 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:43,433 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:43,433 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:43,535 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:43,535 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:43,637 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:43,637 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:43,692 INFO    Thread-17 :4417 [upload_job.py:push():138] Uploaded file /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/config.yaml
+2024-03-14 19:53:43,702 INFO    Thread-20 :4417 [upload_job.py:push():138] Uploaded file /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/output.log
+2024-03-14 19:53:43,739 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:43,739 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:43,841 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:43,842 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:43,943 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:43,944 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:44,046 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:44,046 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:44,148 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:44,150 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:44,205 ERROR   Thread-18 :4417 [internal_api.py:upload_file():1875] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/wangjing07/ST-ESS/1l66p8ei/wandb-summary.json?Expires=1710503623&GoogleAccessId=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com&Signature=O09CnT7dimW72%2FAND6v645ReZ7TJb7BbqTXqFfPAWeZT7o91u7XNUEilIUHqEaCFocQ2uwk62BSa5LN0K1STyBHYow02fRqevEejUiT5IX1ujqAzR16u%2FxaSMML%2BqN89Y2mRTju%2FxLSMdOmGNDTzknesw9vWG%2FAIzh0nrfKpYb67pBVoPaQpzchlJfxUZnLHMYLPvVoaGFqAOgTrzvy1XxW1BFJpEWH146uxFehOOUjhCHpN4KmlAk9L9EARABC0j%2FtvqQH%2BvhUULObj%2FiBhp73BYLCCGffQz6LFCc9O5cw4sBxTg9QxTQoSVsO1GZMdlMTPA4zibSmOqZx4E04OCg%3D%3D: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-03-14 19:53:44,205 ERROR   Thread-18 :4417 [internal_api.py:upload_file():1877] upload_file request headers: {'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '26'}
+2024-03-14 19:53:44,206 ERROR   Thread-18 :4417 [internal_api.py:upload_file():1879] upload_file response body: 
+2024-03-14 19:53:44,253 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:44,254 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:44,355 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:44,356 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:44,458 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:44,459 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:44,560 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:44,561 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:44,663 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:44,664 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:44,696 INFO    Thread-19 :4417 [upload_job.py:push():138] Uploaded file /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/requirements.txt
+2024-03-14 19:53:44,765 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:44,766 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:44,868 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:44,868 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:44,970 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:44,970 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:45,072 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:45,072 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:45,174 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:45,174 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:45,276 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:45,277 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:45,378 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:45,379 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:45,481 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:45,481 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:45,583 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:45,583 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:45,685 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:45,686 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:45,773 INFO    Thread-18 :4417 [upload_job.py:push():138] Uploaded file /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/files/wandb-summary.json
+2024-03-14 19:53:45,788 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:45,788 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:45,890 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:45,890 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:45,974 INFO    Thread-11 (_thread_body):4417 [sender.py:transition_state():459] send defer: 9
+2024-03-14 19:53:45,975 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: defer
+2024-03-14 19:53:45,975 INFO    HandlerThread:4417 [handler.py:handle_request_defer():164] handle defer: 9
+2024-03-14 19:53:45,975 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: defer
+2024-03-14 19:53:45,975 INFO    SenderThread:4417 [sender.py:send_request_defer():455] handle sender defer: 9
+2024-03-14 19:53:45,992 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:46,355 INFO    SenderThread:4417 [sender.py:transition_state():459] send defer: 10
+2024-03-14 19:53:46,355 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:46,356 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: defer
+2024-03-14 19:53:46,357 INFO    HandlerThread:4417 [handler.py:handle_request_defer():164] handle defer: 10
+2024-03-14 19:53:46,357 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: defer
+2024-03-14 19:53:46,358 INFO    SenderThread:4417 [sender.py:send_request_defer():455] handle sender defer: 10
+2024-03-14 19:53:46,358 INFO    SenderThread:4417 [sender.py:transition_state():459] send defer: 11
+2024-03-14 19:53:46,359 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: defer
+2024-03-14 19:53:46,359 DEBUG   SenderThread:4417 [sender.py:send():302] send: final
+2024-03-14 19:53:46,359 INFO    HandlerThread:4417 [handler.py:handle_request_defer():164] handle defer: 11
+2024-03-14 19:53:46,359 DEBUG   SenderThread:4417 [sender.py:send():302] send: footer
+2024-03-14 19:53:46,359 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: defer
+2024-03-14 19:53:46,359 INFO    SenderThread:4417 [sender.py:send_request_defer():455] handle sender defer: 11
+2024-03-14 19:53:46,460 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: poll_exit
+2024-03-14 19:53:46,460 DEBUG   SenderThread:4417 [sender.py:send_request():316] send_request: poll_exit
+2024-03-14 19:53:46,460 INFO    SenderThread:4417 [file_pusher.py:join():176] waiting for file pusher
+2024-03-14 19:53:48,027 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: sampled_history
+2024-03-14 19:53:48,028 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: get_summary
+2024-03-14 19:53:48,029 INFO    MainThread:4417 [wandb_run.py:_footer_history_summary_info():3305] rendering history
+2024-03-14 19:53:48,029 INFO    MainThread:4417 [wandb_run.py:_footer_history_summary_info():3337] rendering summary
+2024-03-14 19:53:48,029 INFO    MainThread:4417 [wandb_run.py:_footer_sync_info():3261] logging synced files
+2024-03-14 19:53:48,030 DEBUG   HandlerThread:4417 [handler.py:handle_request():141] handle_request: shutdown
+2024-03-14 19:53:48,030 INFO    HandlerThread:4417 [handler.py:finish():810] shutting down handler
+2024-03-14 19:53:48,359 INFO    WriterThread:4417 [datastore.py:close():279] close: /root/wj/stess/wandb/run-20240314_195326-1l66p8ei/run-1l66p8ei.wandb
+2024-03-14 19:53:48,925 INFO    SenderThread:4417 [sender.py:finish():1312] shutting down sender
+2024-03-14 19:53:48,926 INFO    SenderThread:4417 [file_pusher.py:finish():171] shutting down file pusher
+2024-03-14 19:53:48,926 INFO    SenderThread:4417 [file_pusher.py:join():176] waiting for file pusher
+2024-03-14 19:53:49,033 INFO    MainThread:4417 [internal.py:handle_exit():80] Internal process exited

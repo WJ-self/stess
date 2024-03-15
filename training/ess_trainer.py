@@ -78,7 +78,7 @@ class ESSModel(training.base_trainer.BaseTrainer):
                             "front_sensor_b": self.front_end_sensor_b}
 
         # Task Backend
-        self.task_backend = MUDecoder (input_c=256, output_c=self.settings.semseg_num_classes,
+        self.task_backend = MUDecoder(input_c=256, output_c=self.settings.semseg_num_classes,
                                         skip_connect=self.settings.skip_connect_task,
                                         skip_type=self.settings.skip_connect_task_type)
         self.models_dict["back_end"] = self.task_backend

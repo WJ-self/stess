@@ -1,0 +1,500 @@
+2024-03-14 20:39:34,679 INFO    StreamThr :18914 [internal.py:wandb_internal():90] W&B internal server running at pid: 18914, started at: 2024-03-14 20:39:34.678554
+2024-03-14 20:39:34,683 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: status
+2024-03-14 20:39:34,685 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: status
+2024-03-14 20:39:34,688 DEBUG   SenderThread:18914 [sender.py:send():302] send: header
+2024-03-14 20:39:34,688 DEBUG   SenderThread:18914 [sender.py:send():302] send: run
+2024-03-14 20:39:34,690 INFO    WriterThread:18914 [datastore.py:open_for_write():75] open: /root/wj/stess/wandb/run-20240314_203934-19tdywox/run-19tdywox.wandb
+2024-03-14 20:39:36,890 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: check_version
+2024-03-14 20:39:36,891 INFO    SenderThread:18914 [dir_watcher.py:__init__():216] watching files in: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files
+2024-03-14 20:39:36,891 INFO    SenderThread:18914 [sender.py:_start_run_threads():913] run started: 19tdywox with start time 1710419974.673168
+2024-03-14 20:39:36,891 DEBUG   SenderThread:18914 [sender.py:send():302] send: summary
+2024-03-14 20:39:36,892 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2024-03-14 20:39:36,892 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: check_version
+2024-03-14 20:39:37,895 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/wandb-summary.json
+2024-03-14 20:39:40,988 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: run_start
+2024-03-14 20:39:41,022 DEBUG   HandlerThread:18914 [meta.py:__init__():35] meta init
+2024-03-14 20:39:41,023 DEBUG   HandlerThread:18914 [meta.py:__init__():50] meta init done
+2024-03-14 20:39:41,023 DEBUG   HandlerThread:18914 [meta.py:probe():216] probe
+2024-03-14 20:39:41,030 DEBUG   HandlerThread:18914 [meta.py:_setup_git():206] setup git
+2024-03-14 20:39:41,042 DEBUG   HandlerThread:18914 [meta.py:_setup_git():213] setup git done
+2024-03-14 20:39:41,042 DEBUG   HandlerThread:18914 [meta.py:_save_pip():54] save pip
+2024-03-14 20:39:41,042 DEBUG   HandlerThread:18914 [meta.py:_save_pip():68] save pip done
+2024-03-14 20:39:41,043 DEBUG   HandlerThread:18914 [meta.py:_save_conda():75] save conda
+2024-03-14 20:39:41,044 ERROR   HandlerThread:18914 [meta.py:_save_conda():84] Error saving conda packages
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/ess/lib/python3.10/site-packages/wandb/sdk/internal/meta.py", line 80, in _save_conda
+    subprocess.call(
+  File "/root/miniconda3/envs/ess/lib/python3.10/subprocess.py", line 345, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/root/miniconda3/envs/ess/lib/python3.10/subprocess.py", line 966, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/root/miniconda3/envs/ess/lib/python3.10/subprocess.py", line 1842, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2024-03-14 20:39:41,045 DEBUG   HandlerThread:18914 [meta.py:_save_conda():85] save conda done
+2024-03-14 20:39:41,045 DEBUG   HandlerThread:18914 [meta.py:probe():254] probe done
+2024-03-14 20:39:41,082 DEBUG   SenderThread:18914 [sender.py:send():302] send: files
+2024-03-14 20:39:41,083 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2024-03-14 20:39:41,091 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:39:41,091 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:39:41,894 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/wandb-metadata.json
+2024-03-14 20:39:41,895 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/conda-environment.yaml
+2024-03-14 20:39:41,895 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/requirements.txt
+2024-03-14 20:39:42,233 INFO    Thread-16 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/2o9zbswa-wandb-metadata.json
+2024-03-14 20:39:42,557 DEBUG   SenderThread:18914 [sender.py:send():302] send: telemetry
+2024-03-14 20:39:42,895 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:39:44,971 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:39:45,871 INFO    HandlerThread:18914 [handler.py:handle_tbrecord():727] handling tbrecord: tbrecord {
+  log_dir: "/root/autodl-tmp/stess_log/ddd17/20240314-203931/checkpoints"
+  save: true
+}
+_info {
+  stream_id: "19tdywox"
+}
+
+2024-03-14 20:39:45,872 DEBUG   HandlerThread:18914 [config_util.py:dict_from_config_file():100] no default config file found in config-defaults.yaml
+2024-03-14 20:39:45,982 DEBUG   SenderThread:18914 [sender.py:send():302] send: tbrecord
+2024-03-14 20:39:45,985 DEBUG   SenderThread:18914 [sender.py:send():302] send: files
+2024-03-14 20:39:45,986 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c with policy live
+2024-03-14 20:39:46,973 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:39:46,974 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:39:47,977 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:39:57,563 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:39:57,563 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:40:06,990 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/config.yaml
+2024-03-14 20:40:08,991 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:09,558 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:40:10,993 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:12,994 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:14,996 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:16,997 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:17,582 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:40:17,583 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:40:18,999 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:21,000 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:23,002 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:25,003 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:27,005 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:29,007 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:31,008 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:33,010 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:33,320 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:40:33,321 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:40:35,011 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:37,013 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:39,014 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:39,711 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:40:41,016 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:43,017 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:45,018 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:47,021 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:48,990 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:40:48,991 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:40:49,023 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:51,024 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:53,025 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:55,027 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:57,028 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:40:59,030 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:01,031 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:03,033 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:04,928 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:41:04,929 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:41:05,034 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:07,036 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:10,700 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:41:13,040 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:15,042 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:17,043 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:17,044 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:41:19,023 INFO    Thread-19 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/3hj6qzed-events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:41:19,045 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:21,046 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:23,047 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:25,030 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:41:25,031 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:41:25,082 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:27,085 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:29,086 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:31,087 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:33,089 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:35,162 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:37,164 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:39,165 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:40,287 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:41:41,166 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:41,364 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:41:41,365 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:41:43,180 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:45,181 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:46,182 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:41:47,183 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:49,184 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:51,186 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:53,187 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:55,189 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:57,087 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:41:57,088 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:41:57,191 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:41:59,192 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:01,194 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:03,195 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:05,196 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:07,198 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:09,199 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:10,484 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:42:11,201 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:12,771 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:42:12,771 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:42:13,202 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:15,203 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:17,205 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:19,206 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:21,208 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:23,209 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:25,211 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:27,212 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:28,453 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:42:28,454 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:42:29,214 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:30,215 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:42:31,215 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:32,498 INFO    Thread-20 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/144mc9k1-events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:42:33,217 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:35,305 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:37,296 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:39,298 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:40,791 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:42:41,299 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:43,312 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:44,280 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:42:44,281 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:42:45,313 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:47,315 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:49,316 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:51,318 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:53,390 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:55,392 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:57,393 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:59,395 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:42:59,890 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:42:59,890 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:43:01,416 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:03,417 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:05,419 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:07,420 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:09,513 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:11,287 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:43:11,504 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:13,505 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:15,507 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:15,685 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:43:15,685 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:43:17,513 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:19,515 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:21,517 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:23,518 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:25,520 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:27,561 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:29,563 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:31,361 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:43:31,362 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:43:31,564 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:33,566 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:35,615 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:36,693 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:38,685 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:40,686 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:41,689 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:43:42,688 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:44,807 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:44,818 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:43:45,797 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:46,798 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:43:47,019 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:43:47,019 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:43:48,514 INFO    Thread-21 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/1n1hrm8p-events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:43:54,803 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:43:56,805 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:43:58,806 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:00,807 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:02,885 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:03,308 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:44:03,309 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:44:04,886 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:08,889 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:10,916 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:12,049 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:44:12,918 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:14,919 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:16,921 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:18,923 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:20,947 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:22,797 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:44:22,798 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:44:22,949 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:24,950 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:26,952 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:28,953 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:30,976 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:32,978 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:34,980 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:36,981 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:38,711 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:44:38,712 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:44:38,984 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:40,985 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:42,384 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:44:42,987 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:44,988 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:46,989 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:49,004 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:50,996 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:52,997 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:54,348 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:44:54,349 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:44:54,999 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:57,023 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:44:59,025 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:01,026 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:03,028 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:05,030 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:07,064 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:09,056 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:09,968 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:45:09,969 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:45:11,057 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:12,770 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:45:13,059 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:15,098 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:17,099 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:19,101 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:21,102 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:23,111 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:25,112 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:25,642 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:45:25,643 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:45:27,113 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:29,115 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:31,116 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:33,220 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:35,211 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:37,213 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:39,214 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:41,216 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:41,402 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:45:41,403 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:45:43,146 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:45:43,311 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:45,310 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:46,311 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:45:47,312 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:48,649 INFO    Thread-22 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/qd81tc7k-events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:45:49,313 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:49,414 DEBUG   SenderThread:18914 [sender.py:send():302] send: files
+2024-03-14 20:45:49,414 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file media/images/val_events_reconst_input_events_0_0_9f1f46a15e68f68ee9a0.png with policy now
+2024-03-14 20:45:49,448 DEBUG   SenderThread:18914 [sender.py:send():302] send: files
+2024-03-14 20:45:49,449 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file media/images/val_events_reconst_input_events_1_0_cc76925125c4e5466643.png with policy now
+2024-03-14 20:45:49,483 DEBUG   SenderThread:18914 [sender.py:send():302] send: files
+2024-03-14 20:45:49,484 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file media/images/val_events_reconst_input_events_2_0_fbab16c027c060b7550c.png with policy now
+2024-03-14 20:45:49,517 DEBUG   SenderThread:18914 [sender.py:send():302] send: files
+2024-03-14 20:45:49,517 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file media/images/val_events_semseg_cm_0_e640c50c2821de0437b9.png with policy now
+2024-03-14 20:45:49,526 DEBUG   SenderThread:18914 [sender.py:send():302] send: files
+2024-03-14 20:45:49,526 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file media/images/train_semseg_event_0_bcf95c0a7424384b6df9.png with policy now
+2024-03-14 20:45:49,561 DEBUG   SenderThread:18914 [sender.py:send():302] send: history
+2024-03-14 20:45:49,562 DEBUG   SenderThread:18914 [sender.py:send():302] send: summary
+2024-03-14 20:45:49,563 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2024-03-14 20:45:49,564 DEBUG   SenderThread:18914 [sender.py:send():302] send: history
+2024-03-14 20:45:49,564 DEBUG   SenderThread:18914 [sender.py:send():302] send: summary
+2024-03-14 20:45:49,564 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2024-03-14 20:45:50,315 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/wandb-summary.json
+2024-03-14 20:45:50,315 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/media/images/val_events_reconst_input_events_2_0_fbab16c027c060b7550c.png
+2024-03-14 20:45:50,316 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/media/images/train_semseg_event_0_bcf95c0a7424384b6df9.png
+2024-03-14 20:45:50,316 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/media/images/val_events_reconst_input_events_1_0_cc76925125c4e5466643.png
+2024-03-14 20:45:50,317 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/media/images/val_events_reconst_input_events_0_0_9f1f46a15e68f68ee9a0.png
+2024-03-14 20:45:50,317 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/media/images/val_events_semseg_cm_0_e640c50c2821de0437b9.png
+2024-03-14 20:45:50,317 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/media
+2024-03-14 20:45:50,318 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_created():275] file/dir created: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/media/images
+2024-03-14 20:45:51,208 INFO    Thread-25 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/o5cn18en-media/images/val_events_reconst_input_events_2_0_fbab16c027c060b7550c.png
+2024-03-14 20:45:51,316 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:51,451 INFO    Thread-24 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/zzhazszq-media/images/val_events_reconst_input_events_1_0_cc76925125c4e5466643.png
+2024-03-14 20:45:51,816 INFO    Thread-27 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/u11px5de-media/images/train_semseg_event_0_bcf95c0a7424384b6df9.png
+2024-03-14 20:45:51,960 INFO    Thread-23 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/3h5e3u0a-media/images/val_events_reconst_input_events_0_0_9f1f46a15e68f68ee9a0.png
+2024-03-14 20:45:52,564 INFO    Thread-26 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/1882mx9w-media/images/val_events_semseg_cm_0_e640c50c2821de0437b9.png
+2024-03-14 20:45:53,318 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:53,895 INFO    Thread-29 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/2jpj8llx-media/images/val_events_reconst_input_events_1_0_cc76925125c4e5466643.png
+2024-03-14 20:45:53,928 INFO    Thread-28 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/33apy97r-media/images/val_events_reconst_input_events_2_0_fbab16c027c060b7550c.png
+2024-03-14 20:45:54,002 INFO    Thread-31 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/ixkaholp-media/images/val_events_semseg_cm_0_e640c50c2821de0437b9.png
+2024-03-14 20:45:54,925 INFO    Thread-30 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/ux65jo8k-media/images/val_events_reconst_input_events_0_0_9f1f46a15e68f68ee9a0.png
+2024-03-14 20:45:55,320 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:55,839 INFO    Thread-32 :18914 [upload_job.py:push():138] Uploaded file /tmp/tmpxtvsjmpxwandb/vqscpe3x-media/images/train_semseg_event_0_bcf95c0a7424384b6df9.png
+2024-03-14 20:45:57,035 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:45:57,035 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:45:57,322 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:45:59,324 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:01,326 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:03,328 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:05,330 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:07,332 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:09,334 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:11,336 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:12,752 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:46:12,753 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:46:13,338 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:13,497 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:46:15,340 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:17,342 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:19,344 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:21,346 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:23,348 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:25,350 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:27,352 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:28,528 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:46:28,529 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:46:29,355 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:31,356 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:33,358 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:35,361 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:37,363 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:39,365 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:41,367 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:43,369 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:43,509 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:46:44,130 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:46:44,131 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:46:45,371 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:47,373 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:49,375 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:51,377 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:53,385 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:55,394 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:57,403 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:59,411 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:46:59,761 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:46:59,762 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:47:01,413 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:03,415 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:05,417 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:07,419 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:09,421 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:11,423 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:13,425 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:13,672 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:47:15,427 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:15,449 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:47:15,450 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:47:17,430 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:19,432 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:21,434 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:23,436 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:25,438 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:27,440 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:29,442 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:31,106 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:47:31,107 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:47:31,444 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:33,446 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:35,448 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:37,450 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:39,452 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:41,454 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:43,457 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:43,846 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:47:45,459 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:46,460 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:47:46,738 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:47:46,738 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:47:47,459 DEBUG   SenderThread:18914 [sender.py:send():302] send: history
+2024-03-14 20:47:47,460 DEBUG   SenderThread:18914 [sender.py:send():302] send: summary
+2024-03-14 20:47:47,462 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2024-03-14 20:47:47,462 DEBUG   SenderThread:18914 [sender.py:send():302] send: history
+2024-03-14 20:47:47,462 DEBUG   SenderThread:18914 [sender.py:send():302] send: summary
+2024-03-14 20:47:47,463 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2024-03-14 20:47:47,464 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:47,465 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/wandb-summary.json
+2024-03-14 20:47:49,466 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:51,468 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:53,469 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:55,471 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:57,473 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:47:59,475 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:01,477 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:02,558 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:48:02,559 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:48:03,479 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:09,485 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:11,487 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:13,489 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:14,014 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:48:15,491 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:17,493 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:19,495 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:21,498 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:22,540 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:48:22,541 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:48:23,499 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:25,501 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:27,503 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:29,505 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:31,507 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:33,509 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:35,511 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:37,513 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:38,704 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:48:38,705 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:48:39,515 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:41,517 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:43,519 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:44,183 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:48:45,522 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:47,524 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:49,526 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:51,528 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:53,530 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:54,946 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:48:54,946 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:48:55,532 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:57,534 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:48:59,536 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:01,540 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:03,545 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:05,551 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:07,556 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:09,560 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:10,655 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:49:10,656 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:49:11,564 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:13,569 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:14,352 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:49:15,575 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:17,581 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:19,587 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:21,592 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:23,597 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:25,602 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:26,699 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:49:26,699 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:49:28,604 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:30,606 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:32,608 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:34,610 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:36,612 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:38,613 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:40,615 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:42,617 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:42,938 DEBUG   HandlerThread:18914 [handler.py:handle_request():141] handle_request: stop_status
+2024-03-14 20:49:42,938 DEBUG   SenderThread:18914 [sender.py:send_request():316] send_request: stop_status
+2024-03-14 20:49:44,512 DEBUG   SenderThread:18914 [sender.py:send():302] send: stats
+2024-03-14 20:49:44,619 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:46,621 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/output.log
+2024-03-14 20:49:46,622 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/events.out.tfevents.1710419985.autodl-container-59154cad17-4039376c
+2024-03-14 20:49:47,158 DEBUG   SenderThread:18914 [sender.py:send():302] send: history
+2024-03-14 20:49:47,159 DEBUG   SenderThread:18914 [sender.py:send():302] send: summary
+2024-03-14 20:49:47,160 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2024-03-14 20:49:47,161 DEBUG   SenderThread:18914 [sender.py:send():302] send: history
+2024-03-14 20:49:47,161 DEBUG   SenderThread:18914 [sender.py:send():302] send: summary
+2024-03-14 20:49:47,162 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2024-03-14 20:49:47,162 DEBUG   SenderThread:18914 [sender.py:send():302] send: history
+2024-03-14 20:49:47,163 DEBUG   SenderThread:18914 [sender.py:send():302] send: summary
+2024-03-14 20:49:47,163 INFO    SenderThread:18914 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2024-03-14 20:49:47,622 INFO    Thread-12 :18914 [dir_watcher.py:_on_file_modified():292] file/dir modified: /root/wj/stess/wandb/run-20240314_203934-19tdywox/files/wandb-summary.json

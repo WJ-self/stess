@@ -6,7 +6,7 @@ import torch.nn.functional as f
 from models.submodules import InterpolationLayer
 
 
-class MUDecoder (nn.Module):
+class MUDecoder(nn.Module):
     """Task: Semantic Segmentation Decoder
     """
     def __init__(self, input_c, output_c, skip_connect=False, skip_type='sum', input_index_map=False):

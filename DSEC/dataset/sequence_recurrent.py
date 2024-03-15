@@ -96,11 +96,11 @@ class SequenceRecurrent(Dataset):
 
         if self.mode == 'val':
             if self.semseg_num_classes == 11:
-                label_dir = seq_path / 'semantic' / '11classes' / 'data'
+                label_dir = seq_path / 'semantic' / 'left' / '11classes' / 'data'
             elif self.semseg_num_classes == 19:
-                label_dir = seq_path / 'semantic' / '19classes' / 'data'
+                label_dir = seq_path / 'semantic' / 'left' / '19classes' / 'data'
             elif self.semseg_num_classes == 6:
-                label_dir = seq_path / 'semantic' / '6classes' / 'data'
+                label_dir = seq_path / 'semantic' / 'left' / '6classes' / 'data'
             else:
                 raise ValueError
             assert label_dir.is_dir()

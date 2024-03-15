@@ -1,0 +1,216 @@
+Loading model e2vid/pretrained/E2VID_lightweight.pth.tar...
+Using TransposedConvLayer (fast, with checkerboard artefacts)
+Using TransposedConvLayer (fast, with checkerboard artefacts)
+Cityscapes num of batches:  185 31
+[DDD17Segmentation]: Found 15950 segmentation masks for split train
+[DDD17Segmentation]: Loading real events.
+[DDD17Segmentation]: Found 3890 segmentation masks for split valid
+[DDD17Segmentation]: Loading real events.
+DDD17Events num of batches:  996 243
+Validation on sensor_b
+[34m[1mwandb[39m[22m: [33mWARNING[39m Found log directory outside of given root_logdir, dropping given root_logdir for event file in /root/autodl-tmp/stess_log/ddd17/20240314-201228/checkpoints
+  0%|                                                                                                                                                | 0/20 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 243/243 [03:59<00:00, 1.01s/Batch]
+  0%|                                                                                                                                         | 0.00/996 [00:00<?, ?Batch/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Traceback (most recent call last):                                                                                      | 172/996 [02:51<12:58, 1.06Batch/s, TrainLoss=1.77]
+  File "/root/wj/stess/train.py", line 58, in <module>
+    main()
+  File "/root/wj/stess/train.py", line 54, in main
+    trainer.train()
+  File "/root/wj/stess/training/base_trainer.py", line 371, in train
+    self.trainEpoch()
+  File "/root/wj/stess/training/ess_supervised_trainer.py", line 88, in trainEpoch
+    self.pbar.set_postfix(TrainLoss='{:.2f}'.format(out[-1].data.cpu().numpy()))
+KeyboardInterrupt
