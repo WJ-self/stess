@@ -2,7 +2,7 @@ dataset:
   name_a: 'Cityscapes_gray'
   name_b: 'DSEC_events'
   DSEC_events:
-    dataset_path: '/root/autodl-tmp/DSEC-Semantic/'
+    dataset_path: '/root/autodl-tmp/DSEC_Semantic'
     shape: [440, 640]
     nr_events_data: 20
     nr_events_files_per_data: None
@@ -32,7 +32,7 @@ model:
   skip_connect_task: True
   skip_connect_task_type: 'concat'
   data_augmentation_train: True
-  train_on_event_labels: False # True for ESS supervised (events labels + frames labels), False for ESS UDA
+  train_on_event_labels: True # True for ESS supervised (events labels + frames labels), False for ESS UDA
 optim:
   batch_size_a: 8
   batch_size_b: 8
@@ -51,7 +51,7 @@ checkpoint:
   resume_training: False
   load_pretrained_weights: True # True for loading pre-trained weights
   resume_file: <path>
-  pretrained_file: /root/wj/stess/weights/DSEC_Semantic_supervised_events_frames.pt
+  pretrained_file: '/root/wj/stess/weights/DSEC_Semantic_supervised_events_frames.pt'
 hardware:
   # num_cpu_workers: {-1: auto, 0: main thread, >0: ...}
   num_cpu_workers: 8
